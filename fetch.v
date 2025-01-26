@@ -1,6 +1,6 @@
 `include "define.v"
 module fetch(
-	input wire [63:0] pc_i,
+	input wire [31:0] pc_i,
 	output wire [6:0] opcode_o,
 	output wire [4:0] rd_o,
 	output wire [9:0] funct_o,
@@ -25,6 +25,7 @@ module fetch(
 		: `TYPEI;
 	assign rd_o = instr[11:7];
 	assign funct_o = (instr_type_o == `TYPER) ? {instr[31:25], instr[11:7]}
+		: ((instr_type_o == `TYPEU) | (instr_type_o == `TYPEJ)) ? 10'd0
 		: {7'd0, instr[11:7]};
 	assign rs1_o = instr[19:15];
 	assign rs2_o = instr[24:20];

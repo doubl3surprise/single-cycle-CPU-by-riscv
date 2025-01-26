@@ -1,11 +1,35 @@
-C:/modelsim/examples/single-cycle-cpu-rsicv/access_instruction_memory.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/access_instruction_memory.v
+C:/modelsim/examples/single-cycle-cpu-rsicv/fetch.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/fetch.v
+Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
+-- Compiling module fetch
+
+Top level modules:
+	fetch
+
+} {} {}} C:/modelsim/examples/single-cycle-cpu-rsicv/define.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/define.v
+Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
+
+} {} {}} C:/modelsim/examples/single-cycle-cpu-rsicv/access_instruction_memory.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/access_instruction_memory.v
 Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
 -- Compiling module access_instruction_memory
 
 Top level modules:
 	access_instruction_memory
 
-} {} {}} C:/modelsim/examples/single-cycle-cpu-rsicv/define.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/define.v
+} {} {}} C:/modelsim/examples/single-cycle-cpu-rsicv/decode.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/decode.v
+Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
+-- Compiling module decode
+
+Top level modules:
+	decode
+
+} {} {}} C:/modelsim/examples/single-cycle-cpu-rsicv/access_register_file.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/access_register_file.v
+Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
+-- Compiling module access_register_file
+
+Top level modules:
+	access_register_file
+
+} {} {}} C:/modelsim/examples/single-cycle-cpu-rsicv/main.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/main.v
 Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
 
 } {} {}}

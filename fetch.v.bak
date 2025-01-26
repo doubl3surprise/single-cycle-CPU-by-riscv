@@ -8,7 +8,8 @@ module fetch(
 	output wire [4:0] rs2_o,
 	output wire [31:0] imm_o,
 	output wire [2:0] instr_type_o,
-	output wire imem_error_o);
+	output wire imem_error_o
+);
 	wire [31:0] instr;
 	access_instruction_memory acc_instr_mem(
 		.pc_i(pc_i),
@@ -24,6 +25,7 @@ module fetch(
 		: `TYPEI;
 	assign rd_o = instr[11:7];
 	assign funct_o = (instr_type_o == `TYPER) ? {instr[31:25], instr[11:7]}
+		: ((instr_type_o == `TYPEU) | (instr_type_o == `TYPEJ)) ? 10'd0
 		: {7'd0, instr[11:7]};
 	assign rs1_o = instr[19:15];
 	assign rs2_o = instr[24:20];
