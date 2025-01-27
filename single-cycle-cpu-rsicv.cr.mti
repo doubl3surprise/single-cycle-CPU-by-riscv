@@ -1,12 +1,23 @@
-C:/modelsim/examples/single-cycle-cpu-rsicv/fetch.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/fetch.v
+C:/modelsim/examples/single-cycle-cpu-rsicv/select_pc.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/select_pc.v
+Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
+-- Compiling module select_pc
+
+Top level modules:
+	select_pc
+
+} {} {}} C:/modelsim/examples/single-cycle-cpu-rsicv/memory_access.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/memory_access.v
+Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
+-- Compiling module memory_access
+
+Top level modules:
+	memory_access
+
+} {} {}} C:/modelsim/examples/single-cycle-cpu-rsicv/fetch.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/fetch.v
 Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
 -- Compiling module fetch
 
 Top level modules:
 	fetch
-
-} {} {}} C:/modelsim/examples/single-cycle-cpu-rsicv/define.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/define.v
-Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
 
 } {} {}} C:/modelsim/examples/single-cycle-cpu-rsicv/access_instruction_memory.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/access_instruction_memory.v
 Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
@@ -15,12 +26,29 @@ Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
 Top level modules:
 	access_instruction_memory
 
-} {} {}} C:/modelsim/examples/single-cycle-cpu-rsicv/decode.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/decode.v
+} {} {}} C:/modelsim/examples/single-cycle-cpu-rsicv/execute.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/execute.v
 Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
--- Compiling module decode
+-- Compiling module execute
 
 Top level modules:
-	decode
+	execute
+
+} {} {}} C:/modelsim/examples/single-cycle-cpu-rsicv/define.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/define.v
+Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
+
+} {} {}} C:/modelsim/examples/single-cycle-cpu-rsicv/ram.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/ram.v
+Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
+-- Compiling module ram
+
+Top level modules:
+	ram
+
+} {} {}} C:/modelsim/examples/single-cycle-cpu-rsicv/main.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/main.v
+Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
+-- Compiling module riscv32i_tb
+
+Top level modules:
+	riscv32i_tb
 
 } {} {}} C:/modelsim/examples/single-cycle-cpu-rsicv/access_register_file.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/access_register_file.v
 Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
@@ -28,8 +56,5 @@ Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
 
 Top level modules:
 	access_register_file
-
-} {} {}} C:/modelsim/examples/single-cycle-cpu-rsicv/main.v {1 {vlog -work work -vopt -stats=none C:/modelsim/examples/single-cycle-cpu-rsicv/main.v
-Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
 
 } {} {}}

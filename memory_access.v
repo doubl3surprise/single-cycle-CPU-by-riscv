@@ -1,0 +1,37 @@
+`include "define.v"
+module memory_access(
+    	input  wire        clk_i,
+    	input  wire [6:0]  opcode,
+    	input  wire [9:0]  funct_i,
+    	input  wire [31:0] valE_i,
+    	input  wire [31:0] valA_i,
+    	output wire [31:0] valm_o,
+    	output wire        dmem_error_o
+);
+	wire is_load = (opcode == `OP_LOAD);
+	wire is_s = (opcode == `OP_S);
+    	wire r_en = is_load;
+    	wire w_en = is_s;
+    	wire [31:0] mem_addr = (is_load | is_s) ? valE_i : 32'd0;
+	
+	wire alignment_error = 
+        	(opcode == `OP_LOAD) ? 
+        	    ((funct_i == `FUNC_LW)  && (valE_i[1:0] != 0)) | 
+        	    ((funct_i == `FUNC_LH)  && (valE_i[0]   != 0)) | 
+        	    ((funct_i == `FUNC_LHU) && (valE_i[0]   != 0))   
+        	: (opcode == `OP_S) ? 
+            	((funct_i == `FUNC_SW)  && (valE_i[1:0] != 0)) |  
+            	((funct_i == `FUNC_SH)  && (valE_i[0]   != 0))    
+        	: 1'b0;
+    	assign dmem_error_o = (mem_addr > 1023);
+
+   	ram ram_stage(
+        	.clk_i(clk_i),
+        	.r_en_i(r_en),
+        	.w_en_i(w_en),
+        	.funct_i(funct_i),
+        	.addr_i(mem_addr),
+        	.wdata_i(valA_i),
+        	.rdata_o(valm_o)
+    	);
+endmodule
