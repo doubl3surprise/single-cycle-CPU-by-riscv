@@ -9,89 +9,98 @@ z2
 !i10f 100
 cModel Technology
 dC:/modelsim/examples/cpu
+T_opt
+!s110 1738083181
+Vl8F[16b1a25TlKM^cgcai0
+04 4 4 work main fast 0
+=1-e0d4e8c5d3bb-67990b6c-2b9-12c7c
+o-quiet -auto_acc_if_foreign -work work +acc
+Z0 tCvgOpt 0
+n@_opt
+OL;O;2020.4;71
 vaccess_instruction_memory
-!s110 1738021553
+Z1 !s110 1738083167
 !i10b 1
-!s100 =64>0RFO;H?GOOAT;fH@i1
-Z0 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IHR<iFImd@eB9]UOnADPhM2
-Z1 dC:/modelsim/examples/single-cycle-cpu-rsicv
-w1738021549
+!s100 MUMPRH0F@M@LKFcNo0Fz_2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I;aZD4SOF3g>D>@DOk<]Ci0
+Z3 dC:/modelsim/examples/single-cycle-cpu-rsicv
+w1738075967
 8C:/modelsim/examples/single-cycle-cpu-rsicv/access_instruction_memory.v
 FC:/modelsim/examples/single-cycle-cpu-rsicv/access_instruction_memory.v
-!i122 103
-L0 1 113
-Z2 VDg1SIo80bB@j0V0VzS_@n1
-Z3 OL;L;2020.4;71
+!i122 273
+L0 1 122
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+Z5 OL;L;2020.4;71
 r1
 !s85 0
 31
-!s108 1738021553.000000
+Z6 !s108 1738083167.000000
 !s107 C:/modelsim/examples/single-cycle-cpu-rsicv/access_instruction_memory.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/modelsim/examples/single-cycle-cpu-rsicv/access_instruction_memory.v|
 !i113 0
-Z4 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z5 tCvgOpt 0
+Z7 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R0
 vaccess_register_file
-Z6 !s110 1738020795
+Z8 !s110 1738083168
 !i10b 1
 !s100 UbhOkH<T]4P@LW7VQLEF51
-R0
+R2
 IOk2^hMJMmUgJ5<bR:]1?01
-R1
+R3
 w1738020166
 8C:/modelsim/examples/single-cycle-cpu-rsicv/access_register_file.v
 FC:/modelsim/examples/single-cycle-cpu-rsicv/access_register_file.v
-!i122 98
+!i122 276
 L0 1 20
-R2
-R3
+R4
+R5
 r1
 !s85 0
 31
-Z7 !s108 1738020795.000000
+Z9 !s108 1738083168.000000
 !s107 C:/modelsim/examples/single-cycle-cpu-rsicv/access_register_file.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/modelsim/examples/single-cycle-cpu-rsicv/access_register_file.v|
 !i113 0
-R4
-R5
+R7
+R0
 vdecode
-!s110 1738021673
+R1
 !i10b 1
 !s100 j63OBQCb^_mz9XCa0cf622
-R0
+R2
 IaZ?2[6W353GIU4Kc2Sz?H2
-R1
+R3
 w1738021668
 8C:/modelsim/examples/single-cycle-cpu-rsicv/decode.v
 FC:/modelsim/examples/single-cycle-cpu-rsicv/decode.v
-!i122 105
+!i122 274
 L0 2 30
-R2
-R3
+R4
+R5
 r1
 !s85 0
 31
-!s108 1738021673.000000
+R6
 !s107 define.v|C:/modelsim/examples/single-cycle-cpu-rsicv/decode.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/modelsim/examples/single-cycle-cpu-rsicv/decode.v|
 !i113 0
-R4
-R5
+R7
+R0
 vexceute
 !s110 1738008467
 !i10b 1
 !s100 ee9HWlWT4ikDD@30c2R<K0
-R0
+R2
 IjaWgRcLgfa5KYkce9i78k0
-R1
+R3
 w1738008465
 8C:/modelsim/examples/single-cycle-cpu-rsicv/exceute.v
 FC:/modelsim/examples/single-cycle-cpu-rsicv/exceute.v
 !i122 84
 L0 2 66
-R2
-R3
+R4
+R5
 r1
 !s85 0
 31
@@ -99,143 +108,166 @@ r1
 !s107 define.v|C:/modelsim/examples/single-cycle-cpu-rsicv/exceute.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/modelsim/examples/single-cycle-cpu-rsicv/exceute.v|
 !i113 0
-R4
-R5
-vexecute
-!s110 1738020796
-!i10b 1
-!s100 SOoUW1`EbRmDlg`1W1<>T0
+R7
 R0
-ICW6PSZO5JnRji0P29BmOY2
-R1
-w1738020380
+vexecute
+Z10 !s110 1738083169
+!i10b 1
+!s100 AfNCLEMG1Ig0o]I=O>9_d3
+R2
+IF`f;JH34X@Vn4z:^CX@N<3
+R3
+w1738072001
 8C:/modelsim/examples/single-cycle-cpu-rsicv/execute.v
 FC:/modelsim/examples/single-cycle-cpu-rsicv/execute.v
-!i122 102
-L0 2 56
-R2
-R3
+!i122 280
+L0 2 55
+R4
+R5
 r1
 !s85 0
 31
-!s108 1738020796.000000
+!s108 1738083169.000000
 !s107 define.v|C:/modelsim/examples/single-cycle-cpu-rsicv/execute.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/modelsim/examples/single-cycle-cpu-rsicv/execute.v|
 !i113 0
-R4
-R5
+R7
+R0
 vfetch
-!s110 1738020793
+R1
 !i10b 1
 !s100 gkg73EEfid@OKbn<Efl7W0
-R0
+R2
 Ia;oK5J0c_^lhi`>j3DjB:0
-R1
+R3
 w1738020031
 8C:/modelsim/examples/single-cycle-cpu-rsicv/fetch.v
 FC:/modelsim/examples/single-cycle-cpu-rsicv/fetch.v
-!i122 95
+!i122 272
 L0 2 73
-R2
-R3
+R4
+R5
 r1
 !s85 0
 31
-!s108 1738020793.000000
+R6
 !s107 define.v|C:/modelsim/examples/single-cycle-cpu-rsicv/fetch.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/modelsim/examples/single-cycle-cpu-rsicv/fetch.v|
 !i113 0
+R7
+R0
+vmain
+R8
+!i10b 1
+!s100 h9=bS_P:8nfY=ZJRaKEV02
+R2
+IJFbDA`az_VV93J<ZR][az2
+R3
+w1738083161
+Z11 8C:/modelsim/examples/single-cycle-cpu-rsicv/main.v
+Z12 FC:/modelsim/examples/single-cycle-cpu-rsicv/main.v
+!i122 275
+L0 3 94
 R4
 R5
+r1
+!s85 0
+31
+R9
+Z13 !s107 define.v|C:/modelsim/examples/single-cycle-cpu-rsicv/main.v|
+Z14 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/modelsim/examples/single-cycle-cpu-rsicv/main.v|
+!i113 0
+R7
+R0
 vmemory_access
-R6
+R8
 !i10b 1
 !s100 Gi2I[=Xa7@HFc@kd@n^Ph0
-R0
+R2
 ImnnnmL01D4_NA?5ZbSUK21
-R1
+R3
 w1738020394
 8C:/modelsim/examples/single-cycle-cpu-rsicv/memory_access.v
 FC:/modelsim/examples/single-cycle-cpu-rsicv/memory_access.v
-!i122 99
+!i122 277
 L0 2 36
-R2
-R3
+R4
+R5
 r1
 !s85 0
 31
-R7
+R9
 !s107 define.v|C:/modelsim/examples/single-cycle-cpu-rsicv/memory_access.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/modelsim/examples/single-cycle-cpu-rsicv/memory_access.v|
 !i113 0
-R4
-R5
+R7
+R0
 vram
-R6
+R8
 !i10b 1
 !s100 I;YY=[aae<D7DQf`>GjMR2
-R0
+R2
 I_X0DDEOiOFFCcCBfi5>^90
-R1
+R3
 w1738020655
 8C:/modelsim/examples/single-cycle-cpu-rsicv/ram.v
 FC:/modelsim/examples/single-cycle-cpu-rsicv/ram.v
-!i122 100
+!i122 278
 L0 2 41
-R2
-R3
+R4
+R5
 r1
 !s85 0
 31
-R7
+R9
 !s107 define.v|C:/modelsim/examples/single-cycle-cpu-rsicv/ram.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/modelsim/examples/single-cycle-cpu-rsicv/ram.v|
 !i113 0
-R4
-R5
+R7
+R0
 vriscv32i_tb
-!s110 1738021555
+!s110 1738070873
 !i10b 1
 !s100 o3iciO>Ib<CM^<Mh;Bh;c1
-R0
-IJD7MJzPa]fbD?oEk@UkSI3
-R1
-w1738020968
-8C:/modelsim/examples/single-cycle-cpu-rsicv/main.v
-FC:/modelsim/examples/single-cycle-cpu-rsicv/main.v
-!i122 104
-L0 4 89
 R2
+IJD7MJzPa]fbD?oEk@UkSI3
 R3
+w1738020968
+R11
+R12
+!i122 108
+L0 4 89
+R4
+R5
 r1
 !s85 0
 31
-!s108 1738021555.000000
-!s107 define.v|C:/modelsim/examples/single-cycle-cpu-rsicv/main.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/modelsim/examples/single-cycle-cpu-rsicv/main.v|
+!s108 1738070873.000000
+R13
+R14
 !i113 0
-R4
-R5
+R7
+R0
 vselect_pc
-R6
+R10
 !i10b 1
 !s100 0WbDGRV1fgHKe=21IhmRH2
-R0
+R2
 IKZeSWzfLSDHIiD?o`XoC^2
-R1
+R3
 w1738020404
 8C:/modelsim/examples/single-cycle-cpu-rsicv/select_pc.v
 FC:/modelsim/examples/single-cycle-cpu-rsicv/select_pc.v
-!i122 101
+!i122 279
 L0 2 21
-R2
-R3
+R4
+R5
 r1
 !s85 0
 31
-R7
+R9
 !s107 define.v|C:/modelsim/examples/single-cycle-cpu-rsicv/select_pc.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/modelsim/examples/single-cycle-cpu-rsicv/select_pc.v|
 !i113 0
-R4
-R5
+R7
+R0

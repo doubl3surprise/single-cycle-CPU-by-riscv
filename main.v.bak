@@ -1,135 +1,96 @@
-`timescale 1ns/1ps
+`timescale 10ps/1ps
 `include "define.v"
+module main;
+    	reg clk;
+    	reg [31:0] pc;
+    	wire [6:0] opcode;
+	wire [4:0] rd;
+	wire [9:0] funct;
+	wire [4:0] rs1;
+	wire [4:0] rs2;
+	wire [31:0] imm;
+	wire [2:0] instr_type;
+	wire imem_error;
+	wire [31:0] pc_plus4;
+	wire [31:0] val1;
+	wire [31:0] val2;
+	wire [31:0] valE;
+	wire Cnd;
+	wire [31:0] valm;
+	wire dmem_error;
+	wire [31:0] new_pc;
+	
+    	fetch fetch_inst(
+        	.pc_i(pc),
+        	.opcode_o(opcode),
+        	.rd_o(rd),
+        	.funct_o(funct),
+        	.rs1_o(rs1),
+        	.rs2_o(rs2),
+        	.imm_o(imm),
+        	.instr_type_o(instr_type),
+        	.imem_error_o(imem_error),
+        	.pc_plus4_o(pc_plus4)
+    	);
 
-module riscv32i_tb;
-    reg clk;
-    reg reset;
-    wire [31:0] pc;
-    wire [31:0] instr;
-    wire [31:0] reg_write_data;
-    wire [4:0]  reg_write_rd;
-    wire        reg_write_en;
+    	decode decode_inst(
+        	.instr_type_i(instr_type),
+        	.rs1_i(rs1),
+        	.rs2_i(rs2),
+        	.val1_o(val1),
+        	.val2_o(val2)
+    	);
 
-    // Instantiate Processor Modules
-    fetch fetch_inst(
-        .pc_i(pc),
-        .opcode_o(opcode),
-        .rd_o(rd),
-        .funct_o(funct),
-        .rs1_o(rs1),
-        .rs2_o(rs2),
-        .imm_o(imm),
-        .instr_type_o(instr_type),
-        .imem_error_o(imem_error),
-        .pc_plus4_o(pc_plus4)
-    );
+    	execute execute_inst(
+        	.clk_i(clk),
+        	.instr_type_i(instr_type),
+        	.opcode_i(opcode),
+        	.val1_i(val1),
+        	.val2_i(val2),
+        	.imm_i(imm),
+        	.funct_i(funct),
+        	.pc_i(pc),
+        	.valE_o(valE),
+        	.Cnd_o(Cnd)
+    	);
 
-    decode decode_inst(
-        .instr_type_i(instr_type),
-        .rs1_i(rs1),
-        .rs2_i(rs2),
-        .val1_o(val1),
-        .val2_o(val2)
-    );
+    	memory_access mem_inst(
+        	.clk_i(clk),
+        	.opcode(opcode),
+        	.funct_i(funct),
+        	.valE_i(valE),
+        	.valA_i(val2),
+        	.valm_o(valm),
+        	.dmem_error_o(dmem_error)
+    	);
 
-    execute execute_inst(
-        .clk_i(clk),
-        .set_cc_i(1'b0),
-        .instr_type_i(instr_type),
-        .opcode_i(opcode),
-        .val1_i(val1),
-        .val2_i(val2),
-        .imm_i(imm),
-        .funct_i(funct),
-        .pc_i(pc),
-        .valE_o(valE),
-        .Cnd_o(Cnd)
-    );
+    	select_pc pc_sel(
+        	.clk_i(clk),
+        	.opcode_i(opcode),
+        	.pc_i(pc),
+        	.imm_i(imm),
+        	.valE_i(valE),
+        	.default_pc_i(pc_plus4),
+        	.Cnd_o(Cnd),
+        	.new_pc_o(new_pc)
+    	);
 
-    memory_access mem_inst(
-        .clk_i(clk),
-        .opcode(opcode),
-        .funct_i(funct),
-        .valE_i(valE),
-        .valA_i(val2),  // Store data from rs2
-        .valm_o(valm),
-        .dmem_error_o(dmem_error)
-    );
+	initial begin
+		forever @ (posedge clk) #2 pc= new_pc;
+	end
+	
+	reg [6:0] cycle_count;
+	always @(posedge clk) begin
+    		cycle_count <= cycle_count + 1;
+    		if (cycle_count >= 15) begin
+      			$finish;
+    		end
+	end
 
-    select_pc pc_sel(
-        .clk_i(clk),
-        .opcode_i(opcode),
-        .pc_i(pc),
-        .imm_i(imm),
-        .valE_i(valE),
-        .default_pc_i(pc_plus4),
-        .Cnd_o(Cnd),
-        .new_pc_o(new_pc)
-    );
-
-    // Simulated Register File Writeback
-    assign reg_write_en = (opcode == `OP_JAL || opcode == `OP_JALR || opcode == `OP_LUI || opcode == `OP_AUIPC || opcode == `OP_R || opcode == `OP_IMM);
-    assign reg_write_rd = rd;
-    assign reg_write_data = (opcode == `OP_JAL || opcode == `OP_JALR) ? pc_plus4 : valE;
-
-    // Clock Generation
-    initial begin
-        clk = 0;
-        forever #10 clk = ~clk;
-    end
-
-    // Test Cases
-    initial begin
-        // Initialize Memory with Test Program
-        $readmemh("test_program.hex", fetch_inst.acc_instr_mem.mem);
-
-        // Test 1: LUI x1, 0x12345
-        // Expected: x1 = 0x12345000
-        #20;
-        if (reg_write_rd == 5'h1 && reg_write_data == 32'h12345000)
-            $display("Test 1: LUI PASSED");
-        else
-            $display("Test 1: LUI FAILED");
-
-        // Test 2: AUIPC x2, 0x100
-        // Expected: x2 = PC + 0x100 << 12
-        #20;
-        if (reg_write_rd == 5'h2 && reg_write_data == (32'h80000000 + 32'h100000))
-            $display("Test 2: AUIPC PASSED");
-        else
-            $display("Test 2: AUIPC FAILED");
-
-        // Test 3: JAL x3, target
-        // Expected: x3 = PC+4, PC jumps to target
-        #20;
-        if (reg_write_rd == 5'h3 && reg_write_data == 32'h8000000C && pc == 32'h80001000)
-            $display("Test 3: JAL PASSED");
-        else
-            $display("Test 3: JAL FAILED");
-
-        // Test 4: BEQ x1, x2, label (x1 != x2)
-        // Expected: PC remains sequential
-        #20;
-        if (pc == 32'h80000014)
-            $display("Test 4: BEQ PASSED");
-        else
-            $display("Test 4: BEQ FAILED");
-
-        // Add more test cases...
-
-        // Terminate
-        #100 $finish;
-    end
-
-    // Monitor Signals
-    initial begin
-        $monitor("Time=%t PC=%h Instr=%h Reg[%d]=%h", 
-                 $time, pc, fetch_inst.instr, reg_write_rd, reg_write_data);
-    end
-
-    // Generate VCD Waveform
-    initial begin
-        $dumpfile("riscv32i.vcd");
-        $dumpvars(0, riscv32i_tb);
-    end
+	initial begin
+        	clk = 0;
+		pc = 0;
+		cycle_count = 0;
+        	forever #10 clk = ~clk;
+    	end
 endmodule

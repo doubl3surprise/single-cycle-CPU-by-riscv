@@ -1,7 +1,6 @@
 `include "define.v"
 module execute(
     	input  wire         clk_i,
-    	input  wire         set_cc_i,
     	input  wire [2:0]   instr_type_i,
     	input  wire [6:0]   opcode_i,
     	input  wire [31:0]  val1_i, 
